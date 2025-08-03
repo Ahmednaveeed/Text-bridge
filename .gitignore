@@ -1,0 +1,34 @@
+# Ignore virtual environment
+venv/
+
+data/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.so
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# macOS system files
+.DS_Store
+
+# VS Code settings (optional, if you use VS Code)
+.vscode/
+
+# Environment/config files (optional)
+.env
+*.env
+
+# Log files
+*.log
+
+# Temporary files
+*.swp
+*.bak
+*.tmp
+
+# TensorBoard logs and model checkpoints
+logs/
+checkpoints/
