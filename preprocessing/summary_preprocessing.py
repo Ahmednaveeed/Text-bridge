@@ -51,9 +51,9 @@ def preprocess_summary_data():
     summary_tokenizer, train_summary_seq = tokenize_pad(train_summaries, 'summary', max_len=60, num_words=10000)
 
     # Save tokenizers for later use
-    with open('text_tokenizer.pkl', 'wb') as f:
+    with open('models/text_tokenizer.pkl', 'wb') as f:
         pickle.dump(text_tokenizer, f)
-    with open('summary_tokenizer.pkl', 'wb') as f:
+    with open('models/summary_tokenizer.pkl', 'wb') as f:
         pickle.dump(summary_tokenizer, f)
 
     val_text_seq = tokenize_pad(text_tokenizer.texts_to_sequences(val_texts), padding='post', maxlen=300, truncating='post')

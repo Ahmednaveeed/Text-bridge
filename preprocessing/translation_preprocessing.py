@@ -41,11 +41,11 @@ def preprocess_translation_data():
     ur_tokenizer, ur_padded = tokenize(ur, 'Urdu')
 
     # Save English tokenizer
-    with open('en_tokenizer.pkl', 'wb') as f:
+    with open('models/en_tokenizer.pkl', 'wb') as f:
         pickle.dump(en_tokenizer, f)
 
     # Save Urdu tokenizer
-    with open('ur_tokenizer.pkl', 'wb') as f:
+    with open('models/ur_tokenizer.pkl', 'wb') as f:
         pickle.dump(ur_tokenizer, f)
 
     x_train, x_test, y_train, y_test = train_test_split(en_padded, ur_padded, test_size=0.2, random_state=42)
