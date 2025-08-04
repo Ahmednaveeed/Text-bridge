@@ -1,9 +1,10 @@
 import os 
 import numpy as np
 import pandas as pd
-from tensorflo.keras.preprocessing.text import Tokenizer
+from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 from sklearn.model_selection import train_test_split
+import pickle
 
 # paths
 train_path = 'data/summarization/train.csv'
@@ -48,6 +49,12 @@ def preprocess_summary_data():
 
     text_tokenizer , train_text_seq = tokenize_pad(train_texts, 'input text', max_len=300, num_words=200000)
     summary_tokenizer, train_summary_seq = tokenize_pad(train_summaries, 'summary', max_len=60, num_words=10000)
+
+    # Save tokenizers for later use
+    with open('text_tokenizer.pkl', 'wb') as f:
+        pickle.dump(text_tokenizer, f)
+    with open('summary_tokenizer.pkl', 'wb') as f:
+        pickle.dump(summary_tokenizer, f)
 
     val_text_seq = tokenize_pad(text_tokenizer.texts_to_sequences(val_texts), padding='post', maxlen=300, truncating='post')
     val_summary_seq = tokenize_pad(summary_tokenizer.texts_to_sequences(val_summaries), padding='post', maxlen=60, truncating='post')
